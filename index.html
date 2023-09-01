@@ -5,6 +5,7 @@
       body {
         background-color: #331155;
         color: white;
+        font-family: sans-serif;
       }
       h2 {
         text-align: center;
@@ -23,8 +24,8 @@
     if (path) {
       let status = path.slice(1).split("&").map(a => ({ [`${a.split("=")[0]}`]: a.split("=")[1] }))
       let result = status.find(a => a.status)
-      document.querySelector("h2").textContent = result === 'success' ? "Successfully connected with Mafia V2!" : "Uh oh, something went wrong..."
-      document.querySelector("p").textContent = result === 'success' ? "You may now go back to Discord!" : "Try connecting again, if the issue persists, try contacting support."
+      document.querySelector("h2").textContent = result?.status === 'success' ? "Successfully connected with Mafia V2!" : "Uh oh, something went wrong..."
+      document.querySelector("p").textContent = result?.status === 'success' ? "You may now go back to Discord!" : "Try connecting again, if the issue persists, try contacting support."
     }
   </script>
 </html>
